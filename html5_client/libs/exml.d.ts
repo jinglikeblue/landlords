@@ -1,3 +1,47 @@
+declare module skins.components{
+	class BtnCallSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class BtnNoCallSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class BtnNoRobSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class BtnPassSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class BtnPushSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class BtnResetSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class BtnRobSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class BtnTipSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components{
+	class ClockSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.scene{
+	class HallSceneSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.scene{
+	class RoomSceneSkin extends egret.gui.Skin{
+	}
+}
 declare module skins.scene{
 	class ShowcaseSkin extends egret.gui.Skin{
 	}
@@ -136,5 +180,9 @@ declare module skins.simple{
 }
 declare module skins.simple{
 	class VSliderThumbSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.window{
+	class DecideLandlordWindowSkin extends egret.gui.Skin{
 	}
 }

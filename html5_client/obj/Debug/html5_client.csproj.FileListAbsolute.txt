@@ -1,0 +1,6 @@
+F:\code\landlords\html5_client\bin\html5_client.dll.config
+F:\code\landlords\html5_client\bin\html5_client.dll
+F:\code\landlords\html5_client\bin\html5_client.pdb
+F:\code\landlords\html5_client\obj\Debug\html5_client.csprojResolveAssemblyReference.cache
+F:\code\landlords\html5_client\obj\Debug\html5_client.dll
+F:\code\landlords\html5_client\obj\Debug\html5_client.pdb
