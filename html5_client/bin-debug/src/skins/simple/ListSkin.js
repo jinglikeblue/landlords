@@ -45,3 +45,4 @@ var skins;
         ListSkin.prototype.__class__ = "skins.simple.ListSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=ListSkin.js.map

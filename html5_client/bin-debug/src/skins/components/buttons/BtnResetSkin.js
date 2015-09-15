@@ -34,3 +34,4 @@ var skins;
         })(buttons = components.buttons || (components.buttons = {}));
     })(components = skins.components || (skins.components = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=BtnResetSkin.js.map

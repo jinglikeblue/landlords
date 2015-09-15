@@ -47,3 +47,4 @@ var skins;
         HSliderSkin.prototype.__class__ = "skins.simple.HSliderSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=HSliderSkin.js.map

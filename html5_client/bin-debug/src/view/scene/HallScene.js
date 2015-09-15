@@ -33,3 +33,4 @@ var HallScene = (function (_super) {
     return HallScene;
 })(ASkinCom);
 HallScene.prototype.__class__ = "HallScene";
+//# sourceMappingURL=HallScene.js.map

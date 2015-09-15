@@ -24,3 +24,4 @@ var Clock = (function (_super) {
     return Clock;
 })(ASkinCom);
 Clock.prototype.__class__ = "Clock";
+//# sourceMappingURL=Clock.js.map

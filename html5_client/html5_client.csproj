@@ -64,6 +64,8 @@
     <Content Include="bin-debug\src\skins\simple\VScrollBarThumbSkin.js" />
     <Content Include="bin-debug\src\skins\simple\VSliderSkin.js" />
     <Content Include="bin-debug\src\skins\simple\VSliderThumbSkin.js" />
+    <Content Include="bin-debug\src\skins\window\window.txt" />
+    <Content Include="bin-debug\src\view\window\window.txt" />
     <Content Include="launcher\egret_loader.js" />
     <Content Include="launcher\egret_require.js" />
     <Content Include="launcher\index.html" />
@@ -516,6 +518,7 @@
     <Content Include="src\skins\components\player\PlayerRightSkin.exml" />
     <Content Include="src\skins\components\player\PlayerSelfSkin.exml" />
     <Content Include="resource\config\config.json" />
+    <Content Include="resource\config\robot.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -534,13 +537,15 @@
     <TypeScriptCompile Include="libs\_references.ts" />
     <TypeScriptCompile Include="src\AssetAdapter.ts" />
     <TypeScriptCompile Include="src\consts\PlayerActionType.ts" />
-    <TypeScriptCompile Include="src\consts\PlayerState.ts" />
+    <TypeScriptCompile Include="src\consts\RoomNoticeType.ts" />
+    <TypeScriptCompile Include="src\consts\RoomPlayerState.ts" />
     <TypeScriptCompile Include="src\consts\RoomState.ts" />
     <TypeScriptCompile Include="src\jing\core\AudioDevice.ts" />
     <TypeScriptCompile Include="src\jing\net\NetProxy.ts" />
     <TypeScriptCompile Include="src\jing\notice\Notice.ts" />
     <TypeScriptCompile Include="src\jing\notice\NoticeManager.ts" />
     <TypeScriptCompile Include="src\jing\time\Cooldown.ts" />
+    <TypeScriptCompile Include="src\jing\utils\ArrayUtil.ts" />
     <TypeScriptCompile Include="src\jing\utils\ExtendUtil.ts" />
     <TypeScriptCompile Include="src\jing\utils\ResUtil.ts" />
     <TypeScriptCompile Include="src\jing\utils\StringUtil.ts" />
@@ -549,12 +554,15 @@
     <TypeScriptCompile Include="src\jing\view\HGroup.ts" />
     <TypeScriptCompile Include="src\jing\view\Strip.ts" />
     <TypeScriptCompile Include="src\LoadingUI.ts" />
-    <TypeScriptCompile Include="src\logic\Player.ts" />
+    <TypeScriptCompile Include="src\logic\manager\RobotMgr.ts" />
+    <TypeScriptCompile Include="src\logic\RoomPlayer.ts" />
     <TypeScriptCompile Include="src\logic\Room.ts" />
     <TypeScriptCompile Include="src\Main.ts" />
     <TypeScriptCompile Include="src\model\DC.ts" />
     <TypeScriptCompile Include="src\model\vo\PlayerVO.ts" />
+    <TypeScriptCompile Include="src\model\vo\RoomPlayerVO.ts" />
     <TypeScriptCompile Include="src\model\vo\RoomVO.ts" />
+    <TypeScriptCompile Include="src\util\CardUtil.ts" />
     <TypeScriptCompile Include="src\view\components\Clock.ts" />
     <TypeScriptCompile Include="src\view\components\PlayerAction.ts" />
     <TypeScriptCompile Include="src\view\components\PlayerOther.ts" />

@@ -100,3 +100,4 @@ var skins;
         })(player = components.player || (components.player = {}));
     })(components = skins.components || (skins.components = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=PlayerLeftSkin.js.map

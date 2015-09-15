@@ -1,7 +1,7 @@
 ﻿class RoomVO
 {
     //玩家
-    public players: PlayerVO[] = [];
+    public players: RoomPlayerVO[] = [];
     //房间状态
     public state: number = 0;
     //房间进入当前状态的时间

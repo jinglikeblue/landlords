@@ -35,3 +35,4 @@ var skins;
         SkinnableContainerSkin.prototype.__class__ = "skins.simple.SkinnableContainerSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=SkinnableContainerSkin.js.map

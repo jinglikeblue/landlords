@@ -6,14 +6,8 @@
     public name: string = "";
     //金币数
     public gold: number = 0;
-    //手上的牌
-    public cards: number[] = [];
-    //状态
-    public state: number = 0;
-    //动作结束时间
-    public actionEndTime: number = 0;
-    //是否机器人
+    //性别
+    public sex: number = 0;
+    //是否是AI
     public isRobot: boolean = false;
-    
-
 } 

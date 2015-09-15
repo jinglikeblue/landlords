@@ -41,3 +41,4 @@ var skins;
         TabBarSkin.prototype.__class__ = "skins.simple.TabBarSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=TabBarSkin.js.map

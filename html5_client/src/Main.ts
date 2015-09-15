@@ -126,6 +126,7 @@ class Main extends egret.DisplayObjectContainer
     {
         DC.stage = this.stage;
         DC.cfg = RES.getRes("config_json");
+        RobotMgr.initPool(RES.getRes("robot_json"));
 
         GUIManager.init(this.stage);
         GUIManager.showScene(new HallScene());

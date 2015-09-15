@@ -4,3 +4,9 @@ F:\code\landlords\html5_client\bin\html5_client.pdb
 F:\code\landlords\html5_client\obj\Debug\html5_client.csprojResolveAssemblyReference.cache
 F:\code\landlords\html5_client\obj\Debug\html5_client.dll
 F:\code\landlords\html5_client\obj\Debug\html5_client.pdb
+E:\projects\landlords\html5_client\bin\html5_client.dll.config
+E:\projects\landlords\html5_client\bin\html5_client.dll
+E:\projects\landlords\html5_client\bin\html5_client.pdb
+E:\projects\landlords\html5_client\obj\Debug\html5_client.csprojResolveAssemblyReference.cache
+E:\projects\landlords\html5_client\obj\Debug\html5_client.dll
+E:\projects\landlords\html5_client\obj\Debug\html5_client.pdb

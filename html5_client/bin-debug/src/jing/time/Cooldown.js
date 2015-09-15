@@ -32,3 +32,4 @@ var Cooldown = (function () {
     return Cooldown;
 })();
 Cooldown.prototype.__class__ = "Cooldown";
+//# sourceMappingURL=Cooldown.js.map

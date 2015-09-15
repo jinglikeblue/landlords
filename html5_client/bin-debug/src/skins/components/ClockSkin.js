@@ -41,3 +41,4 @@ var skins;
         ClockSkin.prototype.__class__ = "skins.components.ClockSkin";
     })(components = skins.components || (skins.components = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=ClockSkin.js.map

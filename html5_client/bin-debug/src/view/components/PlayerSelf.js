@@ -10,3 +10,4 @@ var PlayerSelf = (function (_super) {
     return PlayerSelf;
 })(ASkinCom);
 PlayerSelf.prototype.__class__ = "PlayerSelf";
+//# sourceMappingURL=PlayerSelf.js.map

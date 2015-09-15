@@ -66,3 +66,4 @@ var skins;
         CheckBoxSkin.prototype.__class__ = "skins.simple.CheckBoxSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=CheckBoxSkin.js.map

@@ -55,3 +55,4 @@ var skins;
         TextInputSkin.prototype.__class__ = "skins.simple.TextInputSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=TextInputSkin.js.map

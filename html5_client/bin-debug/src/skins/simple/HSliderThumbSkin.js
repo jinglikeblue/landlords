@@ -26,3 +26,4 @@ var skins;
         HSliderThumbSkin.prototype.__class__ = "skins.simple.HSliderThumbSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=HSliderThumbSkin.js.map

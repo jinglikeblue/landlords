@@ -1,7 +1,7 @@
 {
 	"groups":[
 	{
-		"keys":"config_json",
+		"keys":"config_json,robot_json",
 		"name":"preload"
 	},
 	{
@@ -908,5 +908,10 @@
 		"name":"config_json",
 		"type":"json",
 		"url":"config/config.json"
+	},
+	{
+		"name":"robot_json",
+		"type":"json",
+		"url":"config/robot.json"
 	}]
 }

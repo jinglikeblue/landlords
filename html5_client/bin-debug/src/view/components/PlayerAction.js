@@ -55,3 +55,4 @@ var PlayerAction = (function (_super) {
     return PlayerAction;
 })(ASkinCom);
 PlayerAction.prototype.__class__ = "PlayerAction";
+//# sourceMappingURL=PlayerAction.js.map

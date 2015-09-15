@@ -79,3 +79,4 @@ var skins;
         DropDownListSkin.prototype.__class__ = "skins.simple.DropDownListSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=DropDownListSkin.js.map

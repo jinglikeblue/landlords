@@ -22,3 +22,4 @@ var PlayerOther = (function (_super) {
     return PlayerOther;
 })(ASkinCom);
 PlayerOther.prototype.__class__ = "PlayerOther";
+//# sourceMappingURL=PlayerOther.js.map

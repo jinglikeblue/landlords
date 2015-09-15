@@ -49,3 +49,4 @@ var ASkinCom = (function (_super) {
     return ASkinCom;
 })(egret.gui.SkinnableComponent);
 ASkinCom.prototype.__class__ = "ASkinCom";
+//# sourceMappingURL=ASkinCom.js.map

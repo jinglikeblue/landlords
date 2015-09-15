@@ -13,3 +13,4 @@ var RoomScene = (function (_super) {
     return RoomScene;
 })(ASkinCom);
 RoomScene.prototype.__class__ = "RoomScene";
+//# sourceMappingURL=RoomScene.js.map

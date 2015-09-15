@@ -3,8 +3,6 @@ var RoomState = (function () {
     }
     //空闲阶段
     RoomState.FREE = 0;
-    //所有人准备阶段
-    RoomState.ALL_READY = 1;
     //叫地主阶段
     RoomState.CALL_LANDLORD = 2;
     //游戏中

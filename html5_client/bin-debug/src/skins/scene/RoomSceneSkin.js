@@ -127,3 +127,4 @@ var skins;
         RoomSceneSkin.prototype.__class__ = "skins.scene.RoomSceneSkin";
     })(scene = skins.scene || (skins.scene = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=RoomSceneSkin.js.map

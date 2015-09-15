@@ -61,3 +61,4 @@ var skins;
         TreeItemRendererSkin.prototype.__class__ = "skins.simple.TreeItemRendererSkin";
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=TreeItemRendererSkin.js.map

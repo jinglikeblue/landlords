@@ -100,9 +100,11 @@ var Main = (function (_super) {
     __egretProto__.createScene = function () {
         DC.stage = this.stage;
         DC.cfg = RES.getRes("config_json");
+        RobotMgr.initPool(RES.getRes("robot_json"));
         GUIManager.init(this.stage);
         GUIManager.showScene(new HallScene());
     };
     return Main;
 })(egret.DisplayObjectContainer);
 Main.prototype.__class__ = "Main";
+//# sourceMappingURL=Main.js.map

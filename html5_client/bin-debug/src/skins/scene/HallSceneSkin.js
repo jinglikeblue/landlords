@@ -75,3 +75,4 @@ var skins;
         HallSceneSkin.prototype.__class__ = "skins.scene.HallSceneSkin";
     })(scene = skins.scene || (skins.scene = {}));
 })(skins || (skins = {}));
+//# sourceMappingURL=HallSceneSkin.js.map
