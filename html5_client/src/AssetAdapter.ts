@@ -53,7 +53,8 @@ class AssetAdapter implements egret.gui.IAssetAdapter {
         if (content instanceof egret.DisplayObject || content instanceof egret.Texture) {
             compFunc.call(thisObject, content, source);
         }
-        else if (typeof(source) == "string") {
+        else if (typeof (source) == "string")
+        {
             if (RES.hasRes(source)) {
                 RES.getResAsync(source, onGetRes, this);
             }

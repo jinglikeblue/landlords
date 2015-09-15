@@ -23,6 +23,11 @@
     <Content Include="bin-debug\lib\egret_file_list_native.js" />
     <Content Include="bin-debug\src\AssetAdapter.js" />
     <Content Include="bin-debug\src\game_file_list.js" />
+    <Content Include="bin-debug\src\jing\utils\AudioDevice.js" />
+    <Content Include="bin-debug\src\jing\utils\Extend.js" />
+    <Content Include="bin-debug\src\jing\utils\HGroup.js" />
+    <Content Include="bin-debug\src\jing\utils\StringUtil.js" />
+    <Content Include="bin-debug\src\jing\utils\Texture.js" />
     <Content Include="bin-debug\src\LoadingUI.js" />
     <Content Include="bin-debug\src\Main.js" />
     <Content Include="bin-debug\src\scene\Showcase.js" />
@@ -378,7 +383,6 @@
     <Content Include="libs\core\extension\resource\events\ResourceEvent.js" />
     <Content Include="libs\core\extension\resource\Resource.js" />
     <Content Include="libs\core\jslib\NumberUtils.js" />
-    <Content Include="resource\assets\bg.jpg" />
     <Content Include="resource\assets\simple\CheckBox\checkbox-select_disabled.png" />
     <Content Include="resource\assets\simple\CheckBox\checkbox-select_normal.png" />
     <Content Include="resource\assets\simple\CheckBox\checkbox-select_over.png" />
@@ -439,6 +443,11 @@
     <Content Include="resource\assets\simple\VSlider\VSlider_fill.png" />
     <Content Include="resource\assets\simple\VSlider\VSlider_thumb.png" />
     <Content Include="resource\assets\simple\VSlider\VSlider_track.png" />
+    <Content Include="src\jing\utils\AudioDevice.js" />
+    <Content Include="src\jing\utils\Extend.js" />
+    <Content Include="src\jing\utils\HGroup.js" />
+    <Content Include="src\jing\utils\StringUtil.js" />
+    <Content Include="src\jing\utils\Texture.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -491,6 +500,22 @@
     <Content Include="src\skins\simple\VScrollBarThumbSkin.exml" />
     <Content Include="src\skins\simple\VSliderSkin.exml" />
     <Content Include="src\skins\simple\VSliderThumbSkin.exml" />
+    <Content Include="src\skins\components\ClockSkin.exml" />
+    <Content Include="src\skins\scene\HallSceneSkin.exml" />
+    <Content Include="src\skins\scene\RoomSceneSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnCallSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnNoCallSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnNoRobSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnPassSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnPushSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnResetSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnRobSkin.exml" />
+    <Content Include="src\skins\components\buttons\BtnTipSkin.exml" />
+    <Content Include="src\skins\components\player\PlayActionSkin.exml" />
+    <Content Include="src\skins\components\player\PlayerLeftSkin.exml" />
+    <Content Include="src\skins\components\player\PlayerRightSkin.exml" />
+    <Content Include="src\skins\components\player\PlayerSelfSkin.exml" />
+    <Content Include="resource\config\config.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -508,9 +533,31 @@
     <TypeScriptCompile Include="libs\exml.d.ts" />
     <TypeScriptCompile Include="libs\_references.ts" />
     <TypeScriptCompile Include="src\AssetAdapter.ts" />
+    <TypeScriptCompile Include="src\jing\core\AudioDevice.ts" />
+    <TypeScriptCompile Include="src\jing\net\NetProxy.ts" />
+    <TypeScriptCompile Include="src\jing\notice\Notice.ts" />
+    <TypeScriptCompile Include="src\jing\notice\NoticeManager.ts" />
+    <TypeScriptCompile Include="src\jing\time\Cooldown.ts" />
+    <TypeScriptCompile Include="src\jing\utils\ExtendUtil.ts" />
+    <TypeScriptCompile Include="src\jing\utils\ResUtil.ts" />
+    <TypeScriptCompile Include="src\jing\utils\StringUtil.ts" />
+    <TypeScriptCompile Include="src\jing\view\gui\ASkinCom.ts" />
+    <TypeScriptCompile Include="src\jing\view\gui\GUIManager.ts" />
+    <TypeScriptCompile Include="src\jing\view\HGroup.ts" />
+    <TypeScriptCompile Include="src\jing\view\Strip.ts" />
     <TypeScriptCompile Include="src\LoadingUI.ts" />
     <TypeScriptCompile Include="src\Main.ts" />
-    <TypeScriptCompile Include="src\scene\Showcase.ts" />
+    <TypeScriptCompile Include="src\model\DC.ts" />
+    <TypeScriptCompile Include="src\view\components\Clock.ts" />
+    <TypeScriptCompile Include="src\view\components\PlayerAction.ts" />
+    <TypeScriptCompile Include="src\view\components\PlayerOther.ts" />
+    <TypeScriptCompile Include="src\view\components\PlayerSelf.ts" />
+    <TypeScriptCompile Include="src\view\scene\HallScene.ts" />
+    <TypeScriptCompile Include="src\view\scene\RoomScene.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\skins\window\" />
+    <Folder Include="src\view\window\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

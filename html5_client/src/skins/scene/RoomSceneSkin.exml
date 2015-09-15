@@ -1,92 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<e:Skin width="480" height="800" xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+<e:Skin width="480" height="800" xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing" xmlns:ns1="*">
 	<w:HostComponent name="egret.gui.SkinnableComponent"/>
 	<w:Declarations/>
-	<e:states>
-		<e:State name="normal"/>
-		<e:State name="disabled"/>
-	</e:states>
 	<e:UIAsset source="bg_png" locked="true"/>
+	<ns1:PlayerSelf id="playerSelf" x="0" skinName="skins.components.player.PlayerSelfSkin" height="478" y="319"/>
 	<e:UIAsset source="title_bg_png" horizontalCenter="0.5" y="4" locked="true"/>
-	<e:Button skinName="@ButtonSkin('trustee1_png','trustee0_png','trustee0_png')" x="121" y="9.5"/>
-	<e:Button skinName="@ButtonSkin('set1_png','set0_png','set0_png')" x="363" y="9"/>
-	<e:Button skinName="@ButtonSkin('return1_png','return0_png','return0_png')" x="68" y="9"/>
-	<e:Button skinName="@ButtonSkin('charge1_png','charge0_png','charge0_png')" x="309" y="9.5"/>
-	<e:UIAsset source="card_back_png" x="177" y="7"/>
-	<e:UIAsset source="card_back_png" x="221" y="7"/>
-	<e:UIAsset source="card_back_png" x="265" y="7"/>
-	<e:UIAsset source="0" y="478" x="34"/>
-	<e:UIAsset source="21" y="478" x="73"/>
-	<e:UIAsset source="23" y="478" x="112"/>
-	<e:UIAsset source="24" y="478" x="150"/>
-	<e:UIAsset source="25" y="478" x="189"/>
-	<e:UIAsset source="20" y="478" x="227"/>
-	<e:UIAsset source="20" y="478" x="266"/>
-	<e:UIAsset source="20" y="478" x="304"/>
-	<e:UIAsset source="20" y="478" x="343"/>
-	<e:UIAsset source="20" y="478" x="381"/>
-	<e:UIAsset source="0" y="588" x="34"/>
-	<e:UIAsset source="21" y="588" x="73"/>
-	<e:UIAsset source="23" y="588" x="112"/>
-	<e:UIAsset source="24" y="588" x="150"/>
-	<e:UIAsset source="25" y="588" x="189"/>
-	<e:UIAsset source="20" y="588" x="227"/>
-	<e:UIAsset source="20" y="588" x="266"/>
-	<e:UIAsset source="20" y="588" x="304"/>
-	<e:UIAsset source="20" y="588" x="343"/>
-	<e:UIAsset source="20" y="588" x="381"/>
-	<e:UIAsset source="player_common_bg0_png" x="22" y="112"/>
-	<e:UIAsset source="player_common_bg0_png" x="377" y="112"/>
-	<e:UIAsset source="player_common_bg0_png" y="701" horizontalCenter="0"/>
-	<e:UIAsset source="small_0" x="23" y="215"/>
-	<e:UIAsset source="small_1" x="37" y="215"/>
-	<e:UIAsset source="small_10" x="52" y="215"/>
-	<e:UIAsset source="small_11" x="66" y="215"/>
-	<e:UIAsset source="small_12" x="80" y="215"/>
-	<e:UIAsset source="small_0" x="95" y="215"/>
-	<e:UIAsset source="small_1" x="109" y="215"/>
-	<e:UIAsset source="small_10" x="123" y="215"/>
-	<e:UIAsset source="small_12" x="138" y="215"/>
-	<e:UIAsset source="small_12" x="152" y="215"/>
-	<e:UIAsset source="small_0" x="23" y="250"/>
-	<e:UIAsset source="small_1" x="37" y="250"/>
-	<e:UIAsset source="small_10" x="52" y="250"/>
-	<e:UIAsset source="small_11" x="66" y="250"/>
-	<e:UIAsset source="small_12" x="80" y="250"/>
-	<e:UIAsset source="small_0" x="95" y="250"/>
-	<e:UIAsset source="small_1" x="109" y="250"/>
-	<e:UIAsset source="small_10" x="123" y="250"/>
-	<e:UIAsset source="small_12" x="138" y="250"/>
-	<e:UIAsset source="small_12" x="152" y="250"/>
-	<e:UIAsset source="small_0" x="290" y="214"/>
-	<e:UIAsset source="small_1" x="304" y="214"/>
-	<e:UIAsset source="small_10" x="319" y="214"/>
-	<e:UIAsset source="small_11" x="333" y="214"/>
-	<e:UIAsset source="small_12" x="347" y="214"/>
-	<e:UIAsset source="small_0" x="362" y="214"/>
-	<e:UIAsset source="small_1" x="376" y="214"/>
-	<e:UIAsset source="small_10" x="390" y="214"/>
-	<e:UIAsset source="small_12" x="405" y="214"/>
-	<e:UIAsset source="small_12" x="419" y="214"/>
-	<e:UIAsset source="small_0" x="290" y="249"/>
-	<e:UIAsset source="small_1" x="304" y="249"/>
-	<e:UIAsset source="small_10" x="319" y="249"/>
-	<e:UIAsset source="small_11" x="333" y="249"/>
-	<e:UIAsset source="small_12" x="347" y="249"/>
-	<e:UIAsset source="small_0" x="362" y="249"/>
-	<e:UIAsset source="small_1" x="376" y="249"/>
-	<e:UIAsset source="small_10" x="390" y="249"/>
-	<e:UIAsset source="small_12" x="405" y="249"/>
-	<e:UIAsset source="small_12" x="419" y="249"/>
-	<e:UIAsset source="gold_back_png" x="297" y="745"/>
-	<e:UIAsset source="gold_png" x="300" y="746"/>
-	<e:Label textAlign="left" fontFamily="宋体" stroke="1" bold="true" size="20" y="86" x="16" width="157" text="西门吹雪"/>
-	<e:Label fontFamily="宋体" bold="true" size="20" stroke="1" x="310" y="86" textAlign="right" width="160" text="潘金莲"/>
-	<e:Label fontFamily="宋体" bold="true" width="160" size="20" stroke="1" x="297" y="711" textAlign="left" text="帅到想毁容"/>
-	<e:UIAsset source="card_back_png" x="115" y="131"/>
-	<e:UIAsset source="card_back_png" x="326" y="131"/>
-	<e:Label text="17" bold="true" fontFamily="宋体" stroke="1" x="118" y="143.5" textColor="0xFFB4B4"/>
-	<e:Label textColor="0xFFB4B4" text="17" fontFamily="宋体" bold="true" stroke="1" x="327" y="143.5"/>
+	<e:Button id="btnRobot" skinName="@ButtonSkin('trustee1_png','trustee0_png','trustee0_png')" x="121" y="9.5"/>
+	<e:Button id="btnSet" skinName="@ButtonSkin('set1_png','set0_png','set0_png')" x="363" y="9" enabled="true"/>
+	<e:Button id="btnExit" skinName="@ButtonSkin('return1_png','return0_png','return0_png')" x="68" y="9"/>
+	<e:Button id="btnBuy" skinName="@ButtonSkin('charge1_png','charge0_png','charge0_png')" x="309" y="9.5" enabled="true"/>
+	<e:UIAsset id="card0" source="card_back_png" x="177" y="7" width="42" height="58"/>
+	<e:UIAsset id="card1" source="card_back_png" x="221" y="7" width="42" height="58"/>
+	<e:UIAsset id="card2" source="card_back_png" x="265" y="7" width="42" height="58"/>
+	<e:UIAsset source="gold_back_png" y="745" x="324"/>
+	<e:UIAsset source="gold_png" y="746" x="299"/>
 	<e:UIAsset source="rate_png" x="61" y="709"/>
 	<e:UIAsset source="grade_png" x="60" y="746"/>
+	<ns1:PlayerOther id="playerLeft" x="17" y="91" skinName="skins.components.player.PlayerLeftSkin"/>
+	<ns1:PlayerOther id="playerRight" x="162" y="91" skinName="skins.components.player.PlayerRightSkin"/>
+	<e:Label id="txtMultiple" text="12" bold="true" stroke="1" textColor="0xFFFFFF" verticalAlign="bottom" x="124" y="704"/>
+	<e:Label id="txtBase" bold="true" textColor="0xFFFFFF" text="12" verticalAlign="bottom" stroke="1" x="124" y="741"/>
 </e:Skin>

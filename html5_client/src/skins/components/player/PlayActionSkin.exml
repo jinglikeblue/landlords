@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin width="480" height="150" xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing" xmlns:ns1="*">
+	<w:HostComponent name="egret.gui.SkinnableComponent"/>
+	<w:Declarations/>
+	<ns1:Clock id="clock" y="0" skinName="skins.components.ClockSkin" horizontalCenter="11"/>
+	<e:SkinnableComponent id="btnPass" includeIn="lead" skinName="skins.components.buttons.BtnPassSkin" y="70" x="17" touchChildren="true"/>
+	<e:SkinnableComponent id="btnReset" includeIn="lead" skinName="skins.components.buttons.BtnResetSkin" y="72" x="134" touchChildren="true"/>
+	<e:SkinnableComponent id="btnTip" includeIn="lead" skinName="skins.components.buttons.BtnTipSkin" y="71" x="252" touchChildren="true"/>
+	<e:SkinnableComponent id="btnPush" includeIn="lead" skinName="skins.components.buttons.BtnPushSkin" y="70" x="356" touchChildren="true"/>
+	<e:SkinnableComponent id="btnNoRob" skinName="skins.components.buttons.BtnNoRobSkin" includeIn="rob" x="70" y="70" touchChildren="true"/>
+	<e:SkinnableComponent id="btnRob" skinName="skins.components.buttons.BtnRobSkin" includeIn="rob" x="270" y="70" touchChildren="true"/>
+	<e:SkinnableComponent id="btnCall" skinName="skins.components.buttons.BtnCallSkin" includeIn="call" y="70" x="270" touchChildren="true"/>
+	<e:SkinnableComponent id="btnNoCall" skinName="skins.components.buttons.BtnNoCallSkin" includeIn="call" y="70" x="70" touchChildren="true"/>
+	<e:states>
+		<e:State name="call"/>
+		<e:State name="rob"/>
+		<e:State name="lead"/>
+	</e:states>
+</e:Skin>

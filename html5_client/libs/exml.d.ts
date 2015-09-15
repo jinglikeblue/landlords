@@ -1,37 +1,53 @@
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnCallSkin extends egret.gui.Skin{
 	}
 }
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnNoCallSkin extends egret.gui.Skin{
 	}
 }
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnNoRobSkin extends egret.gui.Skin{
 	}
 }
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnPassSkin extends egret.gui.Skin{
 	}
 }
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnPushSkin extends egret.gui.Skin{
 	}
 }
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnResetSkin extends egret.gui.Skin{
 	}
 }
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnRobSkin extends egret.gui.Skin{
 	}
 }
-declare module skins.components{
+declare module skins.components.buttons{
 	class BtnTipSkin extends egret.gui.Skin{
 	}
 }
 declare module skins.components{
 	class ClockSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components.player{
+	class PlayActionSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components.player{
+	class PlayerLeftSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components.player{
+	class PlayerRightSkin extends egret.gui.Skin{
+	}
+}
+declare module skins.components.player{
+	class PlayerSelfSkin extends egret.gui.Skin{
 	}
 }
 declare module skins.scene{
@@ -40,10 +56,6 @@ declare module skins.scene{
 }
 declare module skins.scene{
 	class RoomSceneSkin extends egret.gui.Skin{
-	}
-}
-declare module skins.scene{
-	class ShowcaseSkin extends egret.gui.Skin{
 	}
 }
 declare module skins.simple{
@@ -180,9 +192,5 @@ declare module skins.simple{
 }
 declare module skins.simple{
 	class VSliderThumbSkin extends egret.gui.Skin{
-	}
-}
-declare module skins.window{
-	class DecideLandlordWindowSkin extends egret.gui.Skin{
 	}
 }

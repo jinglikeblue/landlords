@@ -26,6 +26,12 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 /**
  *  GUI 组件示例
  *  逻辑类:    src/scene/Showcase.ts
@@ -45,8 +51,7 @@ var Showcase = (function (_super) {
         this.skinName = "skins.scene.ShowcaseSkin";
         this.initListData();
     }
-    var __egretProto__ = Showcase.prototype;
-    __egretProto__.initListData = function () {
+    Showcase.prototype.initListData = function () {
         for (var i = 1; i < 50; i++) {
             this.dataSource.push({ label: "List Item " + i });
         }
@@ -57,7 +62,7 @@ var Showcase = (function (_super) {
      All the components in the children and skin have been
      created and measured, you can use them now.
      */
-    __egretProto__.childrenCreated = function () {
+    Showcase.prototype.childrenCreated = function () {
         this.btnShowMessage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
         this.list.addEventListener(egret.gui.IndexChangeEvent.CHANGE, this.onListSelectionChange, this);
     };
@@ -71,20 +76,20 @@ var Showcase = (function (_super) {
      skin parts is assigned to the property. You can make
      changes will effect to the layout or other components.
      */
-    __egretProto__.partAdded = function (partName, instance) {
+    Showcase.prototype.partAdded = function (partName, instance) {
         _super.prototype.partAdded.call(this, partName, instance);
         if (instance == this.list) {
             this.list.height = this.stage.stageHeight - 300;
             this.list.dataProvider = new egret.gui.ArrayCollection(this.dataSource);
         }
     };
-    __egretProto__.onButtonClick = function (event) {
+    Showcase.prototype.onButtonClick = function (event) {
         var selection = this.list.selectedItem ? this.list.selectedItem.label : "nothing";
         egret.gui.Alert.show("You have selected " + selection, "Title");
     };
-    __egretProto__.onListSelectionChange = function (event) {
+    Showcase.prototype.onListSelectionChange = function (event) {
         console.log("You have selected " + this.list.selectedItem.label);
     };
     return Showcase;
 })(egret.gui.SkinnableComponent);
-Showcase.prototype.__class__ = "Showcase";
+//# sourceMappingURL=Showcase.js.map

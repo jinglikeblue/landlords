@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin width="246" height="250" currentState="empty" xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing" xmlns:ns1="*">
+	<w:HostComponent name="egret.gui.SkinnableComponent"/>
+	<w:Declarations/>
+	<e:states>
+		<e:State name="thinking"/>
+		<e:State name="action"/>
+		<e:State name="card"/>
+		<e:State name="empty"/>
+	</e:states>
+	<e:UIAsset source="player_common_bg0_png" id="imgHead" y="26" x="2"/>
+	<e:Label id="txtName" textAlign="left" text="西门吹雪" fontFamily="宋体" stroke="1" bold="true" width="157" size="20" y="0" x="2" includeIn="thinking,action,card,empty"/>
+	<e:UIAsset id="cardback" source="card_back_png" y="45" x="95" includeIn="thinking,action,card"/>
+	<e:Label stroke="1" textColor="0xFFB4B4" text="17" fontFamily="宋体" bold="true" id="txtCardRemain" y="57" verticalAlign="bottom" textAlign="center" width="40" x="96" includeIn="thinking,action,card"/>
+	<e:SkinnableContainer id="cards" height="120" includeIn="card,empty" y="129" width="245"/>
+	<e:UIAsset id="action" source="lab_call_png" includeIn="action" x="40" y="129"/>
+	<ns1:Clock skinName="skins.components.ClockSkin" id="clock" x="49" y="129" includeIn="thinking"/>
+</e:Skin>

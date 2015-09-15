@@ -1,6 +1,5 @@
 {
 	"file_list": [
-		"collections/ArrayCollection.ts",
 		"managers/LayoutManager.ts",
 		"managers/layoutClass/DepthQueue.ts",
 		"core/UIGlobals.ts",
@@ -55,8 +54,6 @@
 		"components/ButtonSkin.ts",
 		"components/DataGroup.ts",
 		"components/SkinnableContainer.ts",
-		"components/SkinnableDataContainer.ts",
-		"components/supportClasses/ListBase.ts",
 		"components/Panel.ts",
 		"components/TitleWindow.ts",
 		"components/Alert.ts",
@@ -64,7 +61,6 @@
 		"components/HScrollBar.ts",
 		"components/VSlider.ts",
 		"components/VScrollBar.ts",
-		"components/List.ts",
 		"components/PopUpAnchor.ts",
 		"components/ScrollerProperties.ts",
 		"components/Scroller.ts",
@@ -79,8 +75,6 @@
 		"events/CollectionEvent.ts",
 		"events/CollectionEventKind.ts",
 		"events/ElementExistenceEvent.ts",
-		"events/IndexChangeEvent.ts",
-		"events/ListEvent.ts",
 		"events/PopUpEvent.ts",
 		"events/RendererExistenceEvent.ts",
 		"events/StateChangeEvent.ts",

@@ -1,11 +1,11 @@
 {
 	"groups":[
 	{
-		"keys":"",
+		"keys":"config_json",
 		"name":"preload"
 	},
 	{
-		"keys":"checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,button_disabled_png,button_down_png,button_normal_png,panel_back_png,progressbar_fill_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_normal_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,onoffbutton_off_label_png,onoffbutton_off_thumb_png,onoffbutton_off_track_png,onoffbutton_on_label_png,onoffbutton_on_thumb_png,onoffbutton_on_track_png,tree_icon_dir_png,tree_icon_file_png,panel_headeback_png,dropdownlist_arrow_down_png,dropdownlist_arrow_up_png,DropDownListButtonSkin_down_png,DropDownListButtonSkin_up_png,closebtn_disabled_png,closebtn_down_png,closebtn_up_png,bgImage,app_list_item_cutlline_png,app_list_item_select_png,app_list_item_up_png,togglebutton_over_png,checkbox_select_over_png,checkbox_unselect_over_png,radiobutton_select_over_png,radiobutton_unselect_over_png,hscrollbtn_png,hscrolltrack_png,vscrollbtn_png,vscrolltrack_png,textbox_png",
+		"keys":"checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,button_disabled_png,button_down_png,button_normal_png,panel_back_png,progressbar_fill_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_normal_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,onoffbutton_off_label_png,onoffbutton_off_thumb_png,onoffbutton_off_track_png,onoffbutton_on_label_png,onoffbutton_on_thumb_png,onoffbutton_on_track_png,tree_icon_dir_png,tree_icon_file_png,panel_headeback_png,dropdownlist_arrow_down_png,dropdownlist_arrow_up_png,DropDownListButtonSkin_down_png,DropDownListButtonSkin_up_png,closebtn_disabled_png,closebtn_down_png,closebtn_up_png,app_list_item_cutlline_png,app_list_item_select_png,app_list_item_up_png,togglebutton_over_png,checkbox_select_over_png,checkbox_unselect_over_png,radiobutton_select_over_png,radiobutton_unselect_over_png,hscrollbtn_png,hscrolltrack_png,vscrollbtn_png,vscrolltrack_png,textbox_png",
 		"name":"default"
 	},
 	{
@@ -268,11 +268,6 @@
 		"url":"assets/simple/TitleWindow/closebtn_up.png"
 	},
 	{
-		"name":"bgImage",
-		"type":"image",
-		"url":"assets/bg.jpg"
-	},
-	{
 		"name":"app_list_item_cutlline_png",
 		"type":"image",
 		"url":"assets/simple/ItemRenderer/app_list_item_cutlline.png"
@@ -428,11 +423,6 @@
 		"scale9grid":"9,9,56,56",
 		"type":"image",
 		"url":"assets/imgs/common/header_frame.png"
-	},
-	{
-		"name":"header_frame1_png",
-		"type":"image",
-		"url":"assets/imgs/common/header_frame1.png"
 	},
 	{
 		"name":"gold_png",
@@ -913,5 +903,10 @@
 		"name":"clock_shake_png",
 		"type":"image",
 		"url":"assets/mc/clock_shake.png"
+	},
+	{
+		"name":"config_json",
+		"type":"json",
+		"url":"config/config.json"
 	}]
 }

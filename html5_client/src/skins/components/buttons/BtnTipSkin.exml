@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin width="96" height="55" xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+	<w:HostComponent name="egret.gui.SkinnableComponent"/>
+	<w:Declarations/>
+	<e:states>
+		<e:State name="normal"/>
+		<e:State name="disabled"/>
+	</e:states>
+	<e:Button skinName="@ButtonSkin('btn4_1_png','btn4_0_png','btn4_0_png')"/>
+	<e:UIAsset source="lab_tip_png" horizontalCenter="0.5" verticalCenter="-3.5" touchEnabled="false"/>
+</e:Skin>

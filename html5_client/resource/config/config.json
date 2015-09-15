@@ -1,0 +1,20 @@
+﻿{
+  "player_left": {
+    "card_start":[0,129],
+    "card_gap":19,
+    "clock_pos":[49,129],
+    "label_pos":[40,129]
+  },
+  "player_right": {
+    "card_start":[267,129],
+    "card_gap":19,
+    "clock_pos":[162,629],
+    "label_pos":[1790,129]
+  },
+  "player_self": {
+    "card_start":[140,30],
+    "card_gap":19,
+    "hand_card_start":[20,168],
+    "hand_card_gap":42
+  }
+}

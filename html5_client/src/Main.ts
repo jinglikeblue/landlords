@@ -27,20 +27,23 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class Main extends egret.DisplayObjectContainer {
+class Main extends egret.DisplayObjectContainer
+{
 
     /**
      * 加载进度界面
      * loading process interface
      */
-    private loadingView:LoadingUI;
+    private loadingView: LoadingUI;
 
-    public constructor() {
+    public constructor()
+    {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
-    private onAddToStage(event:egret.Event) {
+    private onAddToStage(event: egret.Event)
+    {
         //inject the custom material parser
         //注入自定义的素材解析器
         egret.Injector.mapClass("egret.gui.IAssetAdapter", AssetAdapter);
@@ -61,7 +64,8 @@ class Main extends egret.DisplayObjectContainer {
      * 配置文件加载完成,开始预加载preload资源组。
      * Loading of configuration file is complete, start to pre-load the preload resource group
      */
-    private onConfigComplete(event:RES.ResourceEvent):void {
+    private onConfigComplete(event: RES.ResourceEvent): void
+    {
         RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
@@ -73,8 +77,10 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载完成
      * preload resource group is loaded
      */
-    private onResourceLoadComplete(event:RES.ResourceEvent):void {
-        if (event.groupName == "preload") {
+    private onResourceLoadComplete(event: RES.ResourceEvent): void
+    {
+        if (event.groupName == "preload")
+        {
             this.stage.removeChild(this.loadingView);
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
             RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
@@ -87,7 +93,8 @@ class Main extends egret.DisplayObjectContainer {
      * 资源组加载出错
      * Resource group loading failed
      */
-    private onResourceLoadError(event:RES.ResourceEvent):void {
+    private onResourceLoadError(event: RES.ResourceEvent): void
+    {
         //TODO
         console.warn("Group:" + event.groupName + " has failed to load");
         //忽略加载失败的项目
@@ -99,39 +106,29 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载进度
      * loading process of preload resource
      */
-    private onResourceProgress(event:RES.ResourceEvent):void {
-        if (event.groupName == "preload") {
+    private onResourceProgress(event: RES.ResourceEvent): void
+    {
+        if (event.groupName == "preload")
+        {
             this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
     }
 
-    private gameLayer:egret.DisplayObjectContainer;
+    private gameLayer: egret.DisplayObjectContainer;
 
-    private guiLayer:egret.gui.UIStage;
+    private guiLayer: egret.gui.UIStage;
 
     /**
      * 创建场景界面
      * Create scene interface
      */
-    private createScene():void {
+    private createScene(): void
+    {
+        DC.stage = this.stage;
+        DC.cfg = RES.getRes("config_json");
 
-        //游戏场景层，游戏场景相关内容可以放在这里面。
-        //Game scene layer, the game content related to the scene can be placed inside this layer.
-        this.gameLayer = new egret.DisplayObjectContainer();
-        this.addChild(this.gameLayer);
-        var bitmap:egret.Bitmap = new egret.Bitmap();
-        bitmap.texture = RES.getRes("bgImage");
-        this.gameLayer.addChild(bitmap);
-
-        //GUI的组件必须都在这个容器内部,UIStage会始终自动保持跟舞台一样大小。
-        //GUI components must be within the container, UIStage will always remain the same as stage size automatically.
-        this.guiLayer = new egret.gui.UIStage();
-        this.addChild(this.guiLayer);
-
-        var showcase:Showcase = new Showcase();
-        //在GUI范围内一律使用addElement等方法替代addChild等方法。
-        //Within GUI scope, addChild methods should be replaced by addElement methods.
-        this.guiLayer.addElement(showcase);
+        GUIManager.init(this.stage);
+        GUIManager.showScene(new HallScene());
     }
 
 

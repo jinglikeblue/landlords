@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin width="480" height="480" xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing" xmlns:ns1="*">
+	<w:HostComponent name="egret.gui.SkinnableComponent"/>
+	<w:Declarations/>
+	<e:UIAsset id="imgHead" source="player_common_bg0_png" x="10" horizontalCenter="0.5" y="390"/>
+	<e:Label id="txtName" text="帅到想毁容" fontFamily="宋体" bold="true" width="160" size="20" stroke="1" x="307" textAlign="left" y="400"/>
+	<ns1:PlayerAction id="action" x="0" y="0" skinName="skins.components.player.PlayActionSkin"/>
+</e:Skin>

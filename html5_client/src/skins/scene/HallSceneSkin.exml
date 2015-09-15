@@ -7,10 +7,11 @@
 		<e:State name="disabled"/>
 	</e:states>
 	<e:UIAsset source="bg1_png" x="0" y="0" locked="true"/>
-	<e:Button skinName="@ButtonSkin('h_advice0_png','h_advice1_png','h_advice1_png')" x="235" y="15"/>
-	<e:Button skinName="@ButtonSkin('h_help0_png','h_help1_png','h_help1_png')" x="313" y="15"/>
-	<e:Button skinName="@ButtonSkin('h_set0_png','h_set1_png','h_set1_png')" x="390" y="15"/>
-	<e:Button skinName="@ButtonSkin('quick_0_png','quick_1_png','quick_1_png')" enabled="true" horizontalCenter="-73" y="699"/>
-	<e:UIAsset source="gold_back_png" x="357" y="756"/>
-	<e:UIAsset source="gold_png" x="330" y="757"/>
+	<e:Button id="btnAdvice" skinName="@ButtonSkin('h_advice0_png','h_advice1_png','h_advice1_png')" x="235" y="15"/>
+	<e:Button id="btnHelp" skinName="@ButtonSkin('h_help0_png','h_help1_png','h_help1_png')" x="313" y="15"/>
+	<e:Button id="btnSet" skinName="@ButtonSkin('h_set0_png','h_set1_png','h_set1_png')" x="390" y="15"/>
+	<e:Button id="btnStart" skinName="@ButtonSkin('quick_0_png','quick_1_png','quick_1_png')" enabled="true" horizontalCenter="0" verticalCenter="0"/>
+	<e:UIAsset id="btnBuy" source="gold_back_png" x="201" y="459"/>
+	<e:UIAsset source="gold_png" x="176" y="460"/>
+	<e:Label id="txtGold" textColor="0xFCD054" textAlign="center" size="16" stroke="1" x="206" text="12345678" y="464"/>
 </e:Skin>

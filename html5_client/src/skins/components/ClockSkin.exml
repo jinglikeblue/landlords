@@ -6,6 +6,6 @@
 		<e:State name="normal"/>
 		<e:State name="disabled"/>
 	</e:states>
-	<e:UIAsset source="clock_png" horizontalCenter="3" verticalCenter="0"/>
-	<e:Label text="11" x="17" y="18" textColor="0x000000" fontFamily="宋体" bold="true" size="20" textAlign="center"/>
+	<e:UIAsset id="clock" source="clock_png" horizontalCenter="3" verticalCenter="0"/>
+	<e:Label id="txtTime" y="18" textColor="0x000000" fontFamily="宋体" bold="true" textAlign="center" width="30" verticalAlign="bottom" height="24" size="18" text="22" x="15"/>
 </e:Skin>
