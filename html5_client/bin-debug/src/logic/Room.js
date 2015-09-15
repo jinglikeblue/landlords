@@ -5,7 +5,15 @@ var Room = (function () {
         this._vo = new RoomVO();
         this._vo.scoreMultiple = scoreMultiple;
         this._vo.scoreBase = scoreBase;
+        this.changeState(RoomState.FREE);
+        this._vo.createTime = egret.getTimer();
+        egret.Ticker.getInstance().register(this.roomUpdate, this);
     }
+    Room.prototype.dispose = function () {
+        egret.Ticker.getInstance().unregister(this.roomUpdate, this);
+    };
+    Room.prototype.roomUpdate = function (dt) {
+    };
     Room.prototype.playerEnter = function (player) {
         return true;
     };
@@ -19,6 +27,10 @@ var Room = (function () {
         if (data === void 0) { data = null; }
     };
     Room.prototype.onAllReady = function () {
+    };
+    Room.prototype.changeState = function (state) {
+        this._vo.state = state;
+        this._vo.enterStateTime = egret.getTimer();
     };
     return Room;
 })();

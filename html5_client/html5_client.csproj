@@ -533,6 +533,9 @@
     <TypeScriptCompile Include="libs\exml.d.ts" />
     <TypeScriptCompile Include="libs\_references.ts" />
     <TypeScriptCompile Include="src\AssetAdapter.ts" />
+    <TypeScriptCompile Include="src\consts\PlayerActionType.ts" />
+    <TypeScriptCompile Include="src\consts\PlayerState.ts" />
+    <TypeScriptCompile Include="src\consts\RoomState.ts" />
     <TypeScriptCompile Include="src\jing\core\AudioDevice.ts" />
     <TypeScriptCompile Include="src\jing\net\NetProxy.ts" />
     <TypeScriptCompile Include="src\jing\notice\Notice.ts" />
@@ -546,8 +549,12 @@
     <TypeScriptCompile Include="src\jing\view\HGroup.ts" />
     <TypeScriptCompile Include="src\jing\view\Strip.ts" />
     <TypeScriptCompile Include="src\LoadingUI.ts" />
+    <TypeScriptCompile Include="src\logic\Player.ts" />
+    <TypeScriptCompile Include="src\logic\Room.ts" />
     <TypeScriptCompile Include="src\Main.ts" />
     <TypeScriptCompile Include="src\model\DC.ts" />
+    <TypeScriptCompile Include="src\model\vo\PlayerVO.ts" />
+    <TypeScriptCompile Include="src\model\vo\RoomVO.ts" />
     <TypeScriptCompile Include="src\view\components\Clock.ts" />
     <TypeScriptCompile Include="src\view\components\PlayerAction.ts" />
     <TypeScriptCompile Include="src\view\components\PlayerOther.ts" />

@@ -12,6 +12,8 @@
     public state: number = 0;
     //动作结束时间
     public actionEndTime: number = 0;
+    //是否机器人
+    public isRobot: boolean = false;
     
 
 } 

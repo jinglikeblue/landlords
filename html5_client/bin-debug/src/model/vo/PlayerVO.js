@@ -12,6 +12,8 @@ var PlayerVO = (function () {
         this.state = 0;
         //动作结束时间
         this.actionEndTime = 0;
+        //是否机器人
+        this.isRobot = false;
     }
     return PlayerVO;
 })();
