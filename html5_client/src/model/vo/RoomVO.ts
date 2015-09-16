@@ -13,13 +13,19 @@
     //回合
     public turn: number = 0;
     //谁是第一个叫地主的
-    public first: PlayerVO;
+    public first: number;
     //地主
-    public landlord: PlayerVO;
+    public landlord: number;
     //房间的创建时间
     public createTime: number = 0;
     //当前回合行动玩家
-    public nowPlayer: PlayerVO;
+    public nowPlayer: number;
+    //到下一个玩家执行的时间
+    public nextPlayerTime: number = -1;
+    //游戏的卡牌
+    public cards: number[];
+    //三张地主牌
+    public landlordCards: number[];
 
    
 }

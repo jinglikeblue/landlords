@@ -10,6 +10,4 @@
     public static ROB: number = 3;
     //出牌
     public static PUSH: number = 4;
-    //等待其它玩家
-    public static WAITING: number = 5;
 } 

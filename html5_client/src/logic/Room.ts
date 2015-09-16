@@ -1,5 +1,8 @@
 ﻿class Room
 {
+    //每个人操作的时间限制
+    public static TIME_LIMIT: number = 10000;
+
     private _enterStateFuns: any = {};
     private _exitStateFuns: any = {};
     private _updateStateFuns: any = {};
@@ -12,7 +15,7 @@
     private addRoomPlayer(playerVO: any): RoomPlayer
     {
         var pos: number = this._vo.players.length;
-        var rp: RoomPlayer = new RoomPlayer(playerVO, pos);
+        var rp: RoomPlayer = new RoomPlayer(playerVO, pos, this);
         rp.vo.pos = pos;
         this._vo.players[pos] = rp.vo;
         this._players[playerVO] = rp;
@@ -38,6 +41,12 @@
     private getRoomPlayer(playerVO: any): RoomPlayer
     {
         return this._players[playerVO];
+    }
+
+    //获取房间玩家
+    private getRoomPlayerByPos(pos: number): RoomPlayer
+    {
+        return this.getRoomPlayer(this._vo.players[pos]);
     }
 
 
@@ -201,21 +210,48 @@
                 }
             }
         }
-
     }
-
+    
     //----------------------叫地主
     private enterStateCallLandLord(): void
     {
         //初始化游戏数据
+        var deck: number[] = CardUtil.getDeck();
+        this._vo.cards = deck;
+        this._vo.first = (Math.random() * 3) >> 0;
+        this._vo.nowPlayer = this._vo.first;
+        var index: number = 0;
+        for (var k in this._players)
+        {
+            var rp: RoomPlayer = this._players[k];
+            var startIndex = index * 17;
+            var endIndex = startIndex + 17;
+
+            rp.vo.cards.length = 0;
+            for (var i: number = startIndex; i < endIndex; i++)
+            {
+                rp.vo.cards.push(deck[i]);
+            }
+            rp.onGotCards(this._vo.first);
+        }
+
+        this._vo.landlordCards = deck.slice(51);
+        this._vo.nextPlayerTime = egret.getTimer() + Room.TIME_LIMIT;
     }
 
     private exitStateCallLandLord(): void
     {
+
     }
 
     private updateStateCallLandLord(): void
     {
+        var now: number = egret.getTimer();
+        if (now >= this._vo.nextPlayerTime)
+        {
+            //玩家超时
+            this.getRoomPlayerByPos(this._vo.nowPlayer).onOverTime();
+        }
     }
 
 
