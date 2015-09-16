@@ -554,11 +554,13 @@
     <TypeScriptCompile Include="src\jing\view\HGroup.ts" />
     <TypeScriptCompile Include="src\jing\view\Strip.ts" />
     <TypeScriptCompile Include="src\LoadingUI.ts" />
+    <TypeScriptCompile Include="src\logic\AI.ts" />
     <TypeScriptCompile Include="src\logic\manager\RobotMgr.ts" />
     <TypeScriptCompile Include="src\logic\RoomPlayer.ts" />
     <TypeScriptCompile Include="src\logic\Room.ts" />
     <TypeScriptCompile Include="src\Main.ts" />
     <TypeScriptCompile Include="src\model\DC.ts" />
+    <TypeScriptCompile Include="src\model\vo\CardCombinationVO.ts" />
     <TypeScriptCompile Include="src\model\vo\PlayerVO.ts" />
     <TypeScriptCompile Include="src\model\vo\RoomPlayerVO.ts" />
     <TypeScriptCompile Include="src\model\vo\RoomVO.ts" />
