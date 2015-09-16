@@ -17,7 +17,7 @@ var Room = (function () {
     //添加房间角色
     Room.prototype.addRoomPlayer = function (playerVO) {
         var pos = this._vo.players.length;
-        var rp = new RoomPlayer(playerVO, pos);
+        var rp = new RoomPlayer(playerVO, pos, this);
         rp.vo.pos = pos;
         this._vo.players[pos] = rp.vo;
         this._players[playerVO] = rp;
@@ -38,6 +38,10 @@ var Room = (function () {
     //获取房间玩家
     Room.prototype.getRoomPlayer = function (playerVO) {
         return this._players[playerVO];
+    };
+    //获取房间玩家
+    Room.prototype.getRoomPlayerByPos = function (pos) {
+        return this.getRoomPlayer(this._vo.players[pos]);
     };
     Room.prototype.dispose = function () {
         egret.Ticker.getInstance().unregister(this.roomUpdate, this);
@@ -136,11 +140,34 @@ var Room = (function () {
     };
     //----------------------叫地主
     Room.prototype.enterStateCallLandLord = function () {
-        //初始化游戏数据
+        do {
+            //获取一副牌
+            var deck = CardUtil.getDeck();
+            this._vo.cards = deck;
+            this._vo.first = (Math.random() * 3) >> 0;
+            this._vo.nowPlayer = this._vo.first;
+            var index = 0;
+            for (var k in this._players) {
+                var rp = this._players[k];
+                var startIndex = index * 17;
+                var endIndex = startIndex + 17;
+                for (var i = startIndex; i < endIndex; i++) {
+                    rp.onGetCard(deck[i]);
+                }
+                rp.onDecideFirst(this._vo.first);
+            }
+            this._vo.landlordCards = deck.slice(51);
+            this._vo.nextPlayerTime = egret.getTimer() + Room.TIME_LIMIT;
+        } while (0);
     };
     Room.prototype.exitStateCallLandLord = function () {
     };
     Room.prototype.updateStateCallLandLord = function () {
+        var now = egret.getTimer();
+        if (now >= this._vo.nextPlayerTime) {
+            //玩家超时
+            this.getRoomPlayerByPos(this._vo.nowPlayer).onOverTime();
+        }
     };
     //--------------------------玩牌阶段
     Room.prototype.enterStatePlay = function () {
@@ -149,6 +176,8 @@ var Room = (function () {
     };
     Room.prototype.updateStatePlay = function () {
     };
+    //每个人操作的时间限制
+    Room.TIME_LIMIT = 10000;
     return Room;
 })();
 //# sourceMappingURL=Room.js.map

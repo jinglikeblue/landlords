@@ -84,7 +84,7 @@
         if (null == targetCards)
         {
             //出张最小的
-            return [handCards[0]];
+            return [0];
         }
 
         if (handCards.length < targetCards.length)
@@ -93,22 +93,52 @@
             return null;
         }
 
+        //各种类型的卡牌
+        var targetCombinVO:CardCombinVO = null;
+        //提示的卡牌
+        var promptCombinVO: CardCombinVO = null;
+        //对方打出的牌的bomb分数，不是炸弹则为0分
+        var targetBombScore: number = 0;
+
         var len: number = targetCards.length;
         if (1 == len)
         {
             //单张
+            promptCombinVO = this.getSingle(handCards, this.getCardScore(targetCards[0]));
         }
         else if (2 == len)
         {
             //对子、王炸
+            targetCombinVO = this.getRocket(targetCards);
+            if (null != targetCombinVO)
+            {
+                //王炸谁都要不起
+                return null;
+            }
+
+            targetCombinVO = this.getPair(targetCards);
+            if (null != targetCombinVO)
+            {
+                promptCombinVO = this.getPair(handCards, targetCombinVO.score);
+            }
         }
         else if (3 == len)
         {
             //3张
+            targetCombinVO = this.getTriplet(targetCards);
+            if (null != targetCombinVO)
+            {
+                promptCombinVO = this.getPair(handCards, targetCombinVO.score);
+            }
         }
         else if (4 == len)
         {
             //炸弹、3带1
+            targetCombinVO = this.getBomb(targetCards);
+            if (null != targetCombinVO)
+            {
+                promptCombinVO = this.getPair(handCards, targetCombinVO.score);
+            }
         }
         else if (5 == len)
         {
@@ -158,98 +188,61 @@
         {
             //错误的牌型
         }
-    }
 
-    //-----------------------------获取牌型对应的分数
 
-    //-1表示牌型不对
-    private static getPairScore(cards: number[]): number
-    {
-        if (cards[0] == cards[1])
+        if (null == promptCombinVO)
         {
-            return this.getCardScore(cards[0]) * 2;
+            //看看炸弹
+            promptCombinVO = this.getBomb(handCards, targetBombScore);
+            if (null == promptCombinVO)
+            {
+                //看看王炸
+                promptCombinVO = this.getRocket(handCards);
+            }
         }
-        return -1;
-    }
 
-    //-1表示牌型不对
-    private static getTripletScore(cards: number[]): number
-    {
-        if (cards[0] == cards[1] && cards[0] == cards[2])
+        if (null != promptCombinVO)
         {
-            return this.getCardScore(cards[0]) * 3;
+            return promptCombinVO.indexs;
         }
-        return -1;
+        return null;
     }
-
-    //-1表示牌型不对
-    private static getTripletWithSingleScore(cards: number[]): number
-    {
-        
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getTripletWithPairScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getSequenceScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getSequenceOfPairsScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getSequenceOfTripletsScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getSequenceOfTripletsWithSingleScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getSequenceOfTripletsWithPairsScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getBombScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getRocketScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-    //-1表示牌型不对
-    private static getQuadplexScore(cards: number[]): number
-    {
-        return -1;
-    }
-
-
 
     //-----------------------------------------从给定的牌中挑选出需要的牌
+    //-------------------警告：挑选出的是索引，不是牌的ID
 
     //null表示找不到
-    private static getPair(cards: number[], lessScore:number = 0):number[]
+    private static getSingle(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 1)
+        {
+            return null;
+        }
+
+        for (var i: number = 0; i < cards.length; i++)
+        {
+            var tempScore: number = CardUtil.getCardScore(cards[i]);
+            if (tempScore > lessScore)
+            {
+                var combinVO: CardCombinVO = new CardCombinVO();
+                combinVO.cards = [cards[i]];
+                combinVO.indexs = [i];
+                combinVO.score = tempScore;
+                return combinVO;
+            }
+        }
+
+        return null;
+    }
+
+    //null表示找不到
+    private static getPair(cards: number[], lessScore: number = 0): CardCombinVO
+    {
+        if (cards.length < 2)
+        {
+            return null;
+        }
+
         for (var i: number = 0; i < cards.length - 1; i++)
         {
             if (cards[i] == cards[i + 1])
@@ -258,7 +251,11 @@
                 if (tempScore > lessScore)
                 {
                     //找到满足的牌型
-                    return [cards[i], cards[i + 1]];
+                    var combinVO: CardCombinVO = new CardCombinVO();
+                    combinVO.cards = [cards[i], cards[i + 1]];
+                    combinVO.indexs = [i, i + 1];
+                    combinVO.score = tempScore;
+                    return combinVO;
                 }
             }
         }
@@ -266,69 +263,169 @@
     }
 
     //null表示找不到
-    private static getTriplet(cards: number[], lessScore:number = 0): number[]
+    private static getTriplet(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 3)
+        {
+            return null;
+        }
+
+        for (var i: number = 0; i < cards.length - 2; i++)
+        {
+            if (cards[i] == cards[i + 2])
+            {
+                var tempScore: number = CardUtil.getCardScore(cards[i]) * 3;
+                if (tempScore > lessScore)
+                {
+                    //找到满足的牌型
+                    var combinVO: CardCombinVO = new CardCombinVO();
+                    combinVO.cards = [cards[i], cards[i + 1], cards[i + 2]];
+                    combinVO.indexs = [i, i + 1, i + 2];
+                    combinVO.score = tempScore;
+                    return combinVO;
+                }
+            }
+        }
         return null;
     }
 
     //null表示找不到
-    private static getTripletWithSingle(cards: number[], lessScore:number = 0): number[]
+    private static getTripletWithSingle(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 4)
+        {
+            return null;
+        }
+
+        //var triplets: number[] = this.getTriplet(cards, lessScore);
+        //cards
+
+        //for (var i: number = 0; i < cards.length - 2; i++)
+        //{
+        //    if (cards[i] == cards[i + 2])
+        //    {
+        //        var tempScore: number = CardUtil.getCardScore(cards[i]) * 3;
+        //        if (tempScore > lessScore)
+        //        {
+        //            var singleCardIndex: number = i;
+        //            //找到满足的牌型
+        //            if (i == 0)
+        //            {
+        //                singleCardIndex = 3;
+        //            }
+        //            return [cards[i], cards[i + 1], cards[i + 2], cards[singleCardIndex]];
+        //        }
+        //    }
+        //}
 
         return null;
     }
 
     //null表示找不到
-    private static getTripletWithPair(cards: number[], lessScore:number = 0): number[]
+    private static getTripletWithPair(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 5)
+        {
+            return null;
+        }
+
+        //首先要有一对牌
+        //var pair: number[] = this.getPair(cards);
+        //if (null == pair)
+        //{
+        //    return null;
+        //}
+
+
+
         return null;
     }
 
     //null表示找不到
-    private static getSequence(cards: number[], lessScore:number = 0): number[]
+    private static getSequence(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 5)
+        {
+            return null;
+        }
+
         return null;
     }
 
     //null表示找不到
-    private static getSequenceOfPairs(cards: number[], lessScore:number = 0): number[]
+    private static getSequenceOfPairs(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 6)
+        {
+            return null;
+        }
+
         return null;
     }
 
     //null表示找不到
-    private static getSequenceOfTriplets(cards: number[], lessScore:number = 0): number[]
+    private static getSequenceOfTriplets(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 6)
+        {
+            return null;
+        }
+
         return null;
     }
 
     //null表示找不到
-    private static getSequenceOfTripletsWithSingle(cards: number[], lessScore:number = 0): number[]
+    private static getSequenceOfTripletsWithSingle(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 8)
+        {
+            return null;
+        }
+
         return null;
     }
 
     //null表示找不到
-    private static getSequenceOfTripletsWithPairs(cards: number[], lessScore:number = 0): number[]
+    private static getSequenceOfTripletsWithPairs(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 10)
+        {
+            return null;
+        }
+
         return null;
     }
 
     //null表示找不到
-    private static getBomb(cards: number[], lessScore:number = 0): number[]
+    private static getBomb(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 4)
+        {
+            return null;
+        }
+
         return null;
     }
 
     //null表示找不到
-    private static getRocket(cards: number[], lessScore:number = 0): number
+    private static getRocket(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 2)
+        {
+            return null;
+        }
+
         return null;
     }
 
     //null表示找不到
-    private static getQuadplex(cards: number[], lessScore:number = 0): number
+    private static getQuadplex(cards: number[], lessScore: number = 0): CardCombinVO
     {
+        if (cards.length < 6)
+        {
+            return null;
+        }
+
         return null;
     }
 } 

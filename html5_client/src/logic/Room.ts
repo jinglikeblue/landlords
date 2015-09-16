@@ -216,27 +216,30 @@
     private enterStateCallLandLord(): void
     {
         //初始化游戏数据
-        var deck: number[] = CardUtil.getDeck();
-        this._vo.cards = deck;
-        this._vo.first = (Math.random() * 3) >> 0;
-        this._vo.nowPlayer = this._vo.first;
-        var index: number = 0;
-        for (var k in this._players)
+        do
         {
-            var rp: RoomPlayer = this._players[k];
-            var startIndex = index * 17;
-            var endIndex = startIndex + 17;
-
-            rp.vo.cards.length = 0;
-            for (var i: number = startIndex; i < endIndex; i++)
+            //获取一副牌
+            var deck: number[] = CardUtil.getDeck();
+            this._vo.cards = deck;
+            this._vo.first = (Math.random() * 3) >> 0;
+            this._vo.nowPlayer = this._vo.first;
+            var index: number = 0;
+            for (var k in this._players)
             {
-                rp.vo.cards.push(deck[i]);
+                var rp: RoomPlayer = this._players[k];
+                var startIndex = index * 17;
+                var endIndex = startIndex + 17;
+               
+                for (var i: number = startIndex; i < endIndex; i++)
+                {
+                    rp.onGetCard(deck[i]);                    
+                }
+                rp.onDecideFirst(this._vo.first);
             }
-            rp.onGotCards(this._vo.first);
-        }
 
-        this._vo.landlordCards = deck.slice(51);
-        this._vo.nextPlayerTime = egret.getTimer() + Room.TIME_LIMIT;
+            this._vo.landlordCards = deck.slice(51);
+            this._vo.nextPlayerTime = egret.getTimer() + Room.TIME_LIMIT;
+        } while (0);
     }
 
     private exitStateCallLandLord(): void

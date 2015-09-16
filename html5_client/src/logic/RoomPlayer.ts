@@ -22,6 +22,13 @@
         this._vo.state = state;
         switch (state)
         {
+            case RoomPlayerState.FREE:
+                
+                break;
+            case RoomPlayerState.PREPARE:
+                this._vo.cards.length = 0;
+                this._vo.isProxy = false;
+                break;
             case RoomPlayerState.CALL:
                 if (this._vo.playerVO.isRobot)
                 {
@@ -35,21 +42,23 @@
         }
     }
 
-    //主要用来通知其它玩家的操作信息
-    public onNotice(nt:string, data:any): void
+    public onGetCard(card: number): void
     {
-        if (this._vo.playerVO.isRobot)
+        var cardScore: number = CardUtil.getCardScore(card);
+        var index: number = this._vo.cards.length;
+        while (--index > -1)
         {
-        }
-        NoticeManager.sendNotice(new Notice(nt, data));
+            var tempCardScore: number = CardUtil.getCardScore(this._vo.cards[index]);
+            if (cardScore > tempCardScore)
+            {
+                this.vo.cards.splice(index, 0, card);
+            }
+        }        
     }
 
-    public onGotCards(landlordPos: number): void
+    public onDecideFirst(pos: number): void
     {
-        //对手牌进行一次排序
-        this._vo.cards = CardUtil.sortCards(this._vo.cards);
-
-        if (landlordPos == this._vo.pos)
+        if (pos == this._vo.pos)
         {
             this.changeState(RoomPlayerState.CALL);
         }
@@ -57,6 +66,15 @@
         {
             this.changeState(RoomPlayerState.ROB);
         }
+    }
+
+    //主要用来通知其它玩家的操作信息
+    public onNotice(nt:string, data:any): void
+    {
+        if (this._vo.playerVO.isRobot)
+        {
+        }
+        NoticeManager.sendNotice(new Notice(nt, data));
     }
 
     /**
