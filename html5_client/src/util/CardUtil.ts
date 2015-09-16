@@ -154,6 +154,8 @@
         }
     }
 
+    //-----------------------------获取牌型对应的分数
+
     //-1表示牌型不对
     private static getPairScore(cards: number[]): number
     {
@@ -242,6 +244,18 @@
     //null表示找不到
     private static getPair(cards: number[], lessScore:number = 0):number[]
     {
+        for (var i: number = 0; i < cards.length - 1; i++)
+        {
+            if (cards[i] == cards[i + 1])
+            {
+                var tempScore: number = CardUtil.getCardScore(cards[i]) * 2;
+                if (tempScore > lessScore)
+                {
+                    //找到满足的牌型
+                    return [cards[i], cards[i + 1]];
+                }
+            }
+        }
         return null;
     }
 

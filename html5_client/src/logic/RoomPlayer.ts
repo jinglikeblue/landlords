@@ -46,6 +46,9 @@
 
     public onGotCards(landlordPos: number): void
     {
+        //对手牌进行一次排序
+
+
         if (landlordPos == this._vo.pos)
         {
             this.changeState(RoomPlayerState.CALL);
