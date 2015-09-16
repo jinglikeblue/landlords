@@ -66,6 +66,12 @@
         return ArrayUtil.randomPermutationArray(newDeck);
     }
 
+    //对给的牌进行一次排序(按照分数从小到大)
+    public static sortCards(cards: number[]): number[]
+    {
+        return null;
+    }
+
     //从指定牌组中找出比目标牌组大的牌
     public static getSuggestion(targetCards: number[], handCards: number[]): number[]
     {

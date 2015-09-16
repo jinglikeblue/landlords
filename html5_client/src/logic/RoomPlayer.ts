@@ -47,7 +47,7 @@
     public onGotCards(landlordPos: number): void
     {
         //对手牌进行一次排序
-
+        this._vo.cards = CardUtil.sortCards(this._vo.cards);
 
         if (landlordPos == this._vo.pos)
         {
