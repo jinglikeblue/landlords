@@ -30,15 +30,35 @@
                 this._vo.isProxy = false;
                 break;
             case RoomPlayerState.CALL:
-                if (this._vo.playerVO.isRobot)
-                {
 
-                }
                 break;
             case RoomPlayerState.ROB:
+
                 break;
             case RoomPlayerState.PUSH:
+
                 break;
+        }
+    }
+
+    private turnToCall(): void
+    {
+
+    }
+
+    private turnToRob(): void
+    {
+        if (this._vo.playerVO.isRobot)
+        {
+
+        }
+    }
+
+    private turnToPlay(deskCards:number[]): void
+    {
+        if (this._vo.playerVO.isRobot)
+        {
+
         }
     }
 
@@ -69,12 +89,58 @@
     }
 
     //主要用来通知其它玩家的操作信息
-    public onNotice(nt:string, data:any): void
+    public onNotice(nt:string, pos:number, data:any = null): void
     {
-        if (this._vo.playerVO.isRobot)
+        switch (nt)
         {
-        }
-        NoticeManager.sendNotice(new Notice(nt, data));
+            case RoomNoticeType.PLAYER_ENTER_ROOM:
+            case RoomNoticeType.PLAYER_READY:
+            case RoomNoticeType.PLAYER_EXIT_ROOM:
+                if (false == this._vo.playerVO.isRobot)
+                {
+                    //通知玩家
+                    NoticeManager.sendNotice(new RoomNotice(nt, pos, data));
+                }
+                break;
+            case RoomNoticeType.GAME_TO_CALL:
+                if (pos == this._vo.pos && this._vo.playerVO.isRobot)
+                {
+                    this._room.callForLandlord(this._vo.playerVO, AI.isCall(this._room.vo, this._vo.cards));
+                }
+                else
+                {
+                    NoticeManager.sendNotice(new RoomNotice(nt, pos, data));
+                }
+                break;
+            case RoomNoticeType.GAME_TO_ROB:
+                if (pos == this._vo.pos && this._vo.playerVO.isRobot)
+                {
+                    this._room.robForLandlord(this._vo.playerVO, AI.isRob(this._room.vo, this._vo.cards));
+                }
+                else
+                {
+                    NoticeManager.sendNotice(new RoomNotice(nt, pos, data));
+                }
+                break;
+            case RoomNoticeType.GAME_TO_PLAY:
+                if (pos == this._vo.pos && this._vo.playerVO.isRobot)
+                {
+                    this.aiPush();
+                }
+                else
+                {
+                    NoticeManager.sendNotice(new RoomNotice(nt, pos, data));
+                }
+                break;
+            case RoomNoticeType.GAME_CALLED:
+            case RoomNoticeType.GAME_PLAYED:
+            case RoomNoticeType.GAME_ROBED:
+                if (false == this._vo.playerVO.isRobot)
+                {
+                    NoticeManager.sendNotice(new RoomNotice(nt, pos, data));
+                }
+                break;
+        }        
     }
 
     /**
@@ -85,27 +151,27 @@
         switch (this._vo.state)
         {
             case RoomPlayerState.CALL:
-                this._room.playerAction(this._vo.playerVO, PlayerActionType.NO_CALL);
+                this._room.callForLandlord(this._vo.playerVO, false);
                 break;
             case RoomPlayerState.ROB:
-                this._room.playerAction(this._vo.playerVO, PlayerActionType.NO_ROB);
+                this._room.robForLandlord(this._vo.playerVO, false);
                 break;
             case RoomPlayerState.PUSH:
-                this.autoPush();
+                this.autoPlay();
                 break;
         }
     }
 
     //自动出牌
-    public autoPush(): void
+    public autoPlay(): void
     {
-
+        this._room.play(this._vo.playerVO, AI.play(this._room.vo.lastCards, this._vo.cards, this._room.isOneTeam(this._vo.pos, this._room.vo.lastPlayPos)));
     }
 
     //AI出牌
     public aiPush(): void
     {
-
+        this.autoPlay();
     }
 
 } 

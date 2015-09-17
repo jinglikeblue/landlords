@@ -20,7 +20,7 @@
     * 由AI来决定出什么牌
     * 返回NULL表示不出牌
     */
-    public static push(deskCards:number[], handCards:number[], isTeam:boolean): number[]
+    public static play(deskCards:number[], handCards:number[], isTeam:boolean): number[]
     {
         return null;
     }

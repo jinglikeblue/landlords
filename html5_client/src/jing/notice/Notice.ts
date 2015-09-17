@@ -13,5 +13,4 @@ class Notice{
         this._type = type;
         this._data = data;
     }
-
 }

@@ -8,6 +8,12 @@
     private _updateStateFuns: any = {};
 
     private _vo: RoomVO;
+
+    public get vo(): RoomVO
+    {
+        return this._vo;
+    }
+
     //通过PlayerVO定位的RoomPlayer对象
     private _players: any = {};  
     
@@ -82,7 +88,7 @@
 
         var rp: RoomPlayer = this.addRoomPlayer(player);          
         //通知其它玩家有人进入了游戏
-        this.noticeRoomPlayers(RoomNoticeType.PLAYER_ENTER_ROOM, rp.vo);   
+        this.noticeRoomPlayers(RoomNoticeType.PLAYER_ENTER_ROOM, rp.vo.pos, rp.vo);   
         //自动准备
         this.playerReady(player);
 
@@ -141,13 +147,31 @@
         this.changeState(RoomState.CALL_LANDLORD);
     }
 
-    //玩家执行动作
-    public playerAction(player: PlayerVO, actType: number, data: any = null): void
+    //玩家叫地主
+    public callForLandlord(player: PlayerVO, isCall:boolean): void
+    {
+    }
+
+    //玩家抢地主
+    public robForLandlord(player: PlayerVO, isRob: boolean): void
+    {
+    }
+
+    //玩家出牌
+    public play(player: PlayerVO, cards:number[]): void
     {
 
     }
 
-
+    //两个位置的是不是一个队伍
+    public isOneTeam(posA: number, posB: number):boolean
+    {
+        if (posA != this._vo.landlordPos && posB != this._vo.landlordPos)
+        {
+            return true;
+        }
+        return false;
+    }
 
     private changeState(state: number): void
     {
@@ -159,12 +183,12 @@
         this._enterStateFuns[this._vo.state]();        
     }
 
-    private noticeRoomPlayers(nt: string, data: any): void
+    private noticeRoomPlayers(nt: string, pos:number, data:any = null): void
     {
         for (var k in this._players)
         {
             var rp: RoomPlayer = this._players[k];
-            rp.onNotice(nt, data)
+            rp.onNotice(nt, pos, data);
         }
     }
 
@@ -221,8 +245,8 @@
             //获取一副牌
             var deck: number[] = CardUtil.getDeck();
             this._vo.cards = deck;
-            this._vo.first = (Math.random() * 3) >> 0;
-            this._vo.nowPlayer = this._vo.first;
+            this._vo.firstPos = (Math.random() * 3) >> 0;
+            this._vo.nowPlayerPos = this._vo.firstPos;
             var index: number = 0;
             for (var k in this._players)
             {
@@ -234,7 +258,7 @@
                 {
                     rp.onGetCard(deck[i]);                    
                 }
-                rp.onDecideFirst(this._vo.first);
+                rp.onDecideFirst(this._vo.firstPos);
             }
 
             this._vo.landlordCards = deck.slice(51);
@@ -253,7 +277,7 @@
         if (now >= this._vo.nextPlayerTime)
         {
             //玩家超时
-            this.getRoomPlayerByPos(this._vo.nowPlayer).onOverTime();
+            this.getRoomPlayerByPos(this._vo.nowPlayerPos).onOverTime();
         }
     }
 
