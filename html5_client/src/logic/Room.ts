@@ -258,7 +258,7 @@
                 {
                     rp.onGetCard(deck[i]);                    
                 }
-                rp.onDecideFirst(this._vo.firstPos);
+                rp.onNotice(RoomNoticeType.GAME_TO_CALL, this._vo.nowPlayerPos);
             }
 
             this._vo.landlordCards = deck.slice(51);

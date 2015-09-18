@@ -76,18 +76,6 @@
         }        
     }
 
-    public onDecideFirst(pos: number): void
-    {
-        if (pos == this._vo.pos)
-        {
-            this.changeState(RoomPlayerState.CALL);
-        }
-        else
-        {
-            this.changeState(RoomPlayerState.ROB);
-        }
-    }
-
     //主要用来通知其它玩家的操作信息
     public onNotice(nt:string, pos:number, data:any = null): void
     {
@@ -125,7 +113,7 @@
             case RoomNoticeType.GAME_TO_PLAY:
                 if (pos == this._vo.pos && this._vo.playerVO.isRobot)
                 {
-                    this.aiPush();
+                    this.aiPlay();
                 }
                 else
                 {
@@ -169,7 +157,7 @@
     }
 
     //AI出牌
-    public aiPush(): void
+    public aiPlay(): void
     {
         this.autoPlay();
     }
